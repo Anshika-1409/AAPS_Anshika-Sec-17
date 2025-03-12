@@ -1,0 +1,25 @@
+import java.util.*;
+class array{
+    public static void rotate(int []m, int k){
+        int n=m.length;
+        k = k%n;
+        reverse(m,0, n-1);
+        reverse(m, 0 , k-1);
+        reverse(m, k, n-1);
+    }
+    public static void reverse(int []m , int start, int end){
+        while(start < end){
+            int temp = m[start];
+            m[start] = m[end];
+            m[end] = temp;
+            start++;
+            end--;
+        }
+    }
+    public static void main (String [] args){
+        int [] m = {1,2,3,4,5,6,7};
+        int k =3;
+        rotate(m,k);
+        System.out.println(Arrays.toString(m));
+    }
+}
