@@ -1,0 +1,29 @@
+import java.util.Arrays;
+class Main {
+    public static int removeduplicate(int [] nums){
+        int n = nums.length;
+        for(int i=0; i<n; i++){
+            if(nums[i]==-1){
+                continue;
+            }
+            for (int j=i+1; j<n; j++){
+                if (nums[i]==nums[j]){
+                    nums[j] = -1;
+                }
+            }
+        }
+        int idx = 0;
+        for(int i=0; i<n; i++){
+            if(nums[i]!=-1){
+                nums[idx++] = nums[i];
+            }
+        }
+        return idx;
+    }
+    public static void main(String[] args) {
+        int [] nums = {4,3,2,1,1,7};
+        int k = removeduplicate(nums);
+        System.out.println(k);
+        System.out.println(Arrays.toString(Arrays.copyOf(nums, k)));
+    }
+}
